@@ -12,14 +12,14 @@ public:
 class Truck : public Transport {
 public:
     string Deliver() const override {
-        return "Truck deliver!";
+        return "Truck deliver";
     }
 };
 
 class Ship : public Transport {
 public:
     string Deliver() const override {
-        return "Ship deliver!";
+        return "Ship deliver";
     }
 };
 
@@ -29,7 +29,7 @@ public:
     virtual Transport* FactoryMethod() const = 0;
     string SomeOperation() const {
         Transport* transport = this->FactoryMethod();
-        string result = "Logistic: created " + transport->Deliver();
+        string result = "Logistic created... " + transport->Deliver();
         delete transport;
         return result;
     }
