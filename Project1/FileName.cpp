@@ -6,7 +6,7 @@ using namespace std;
 // Èíòåğôåéñ êîìïîíåíòà
 class IComponent abstract {
 public:
-    virtual string GetLabel() abstract;
+    virtual string GetName() abstract;
     virtual string DescribeSpecs() abstract;
 };
 
@@ -20,7 +20,7 @@ public:
         : name(name), chipModel(chipModel), vramSize(vramSize), coreClock(coreClock) {
     }
 
-    string GetLabel() override {
+    string GetName() override {
         return name;
     }
 
@@ -42,7 +42,7 @@ public:
         : name(name), threads(threads), baseFreq(baseFreq), cacheSize(cacheSize) {
     }
 
-    string GetLabel() override {
+    string GetName() override {
         return name;
     }
 
@@ -63,7 +63,7 @@ public:
         : name(name), size(size), driveType(driveType), connector(connector) {
     }
 
-    string GetLabel() override {
+    string GetName() override {
         return name;
     }
 
@@ -84,7 +84,7 @@ public:
         : name(name), capacity(capacity), memType(memType), speed(speed) {
     }
 
-    string GetLabel() override {
+    string GetName() override {
         return name;
     }
 
@@ -118,7 +118,7 @@ public:
     void Output() override {
         cout << "\n -|ÑÂÎÄÊÀ ÏÎ ÊÎÌÏÎÍÅÍÒÓ|- \n";
         cout << "\n-----------------------\n";
-        cout << "Óñòğîéñòâî: " << component->GetLabel() << "\n";
+        cout << "Óñòğîéñòâî: " << component->GetName() << "\n";
         cout << component->DescribeSpecs();
         cout << "\n-----------------------\n";
     }
@@ -132,7 +132,7 @@ public:
     void Output() override {
         cout << "-|ÎÒ×ÅÒ ÎÁ ÓÑÒĞÎÉÑÒÂÅ-|\n";
         cout << "-----------------------\n";
-        cout << "Íàçâàíèå: " << component->GetLabel() << "\n\n";
+        cout << "Íàçâàíèå: " << component->GetName() << "\n\n";
         cout << "------------------\n";
         cout << "-|ÕÀĞÀÊÒÅĞÈÑÒÈÊÈ-|\n";
         cout << component->DescribeSpecs();
