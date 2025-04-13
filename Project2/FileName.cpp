@@ -9,7 +9,7 @@ public:
 class Auto : public ITransport {
 public:
 	void Drive() override {
-		cout << "The car drives on the road.\n";
+		cout << "The car drives on the road\n";
 	}
 };
 
@@ -28,7 +28,7 @@ public:
 class Camel : public IAnimal {
 public:
 	void Move() override {
-		cout << "Camel rides on the sands of the desert.\n";
+		cout << "Camel rides on the sands of the desert\n";
 	}
 };
 
@@ -47,7 +47,7 @@ public:
 class Deer : public IAnimal {
 public:
 	void Move() override {
-		cout << "Deer gracefully runs through the snow forest.\n";
+		cout << "Deer is running through the forest \n";
 	}
 };
 
@@ -65,7 +65,7 @@ public:
 class Elephant : public IAnimal {
 public:
 	void Move() override {
-		cout << "Elephant slowly walks through the jungle.\n";
+		cout << "The elephant is walking through the jungle\n";
 	}
 };
 
@@ -84,14 +84,14 @@ public:
 class Horse : public IAnimal {
 public:
 	void Move() override {
-		cout << "Horse gallops across the field.\n";
+		cout << "The horse is galloping across the field \n";
 	}
 };
 
-class HorseToTransportAdapter : public ITransport {
+class HorseAdapter : public ITransport {
 	Horse horse;
 public:
-	HorseToTransportAdapter(Horse animal) {
+	HorseAdapter(Horse animal) {
 		horse = animal;
 	}
 	void Drive() override {
@@ -126,7 +126,7 @@ int main() {
 
 	
 	Horse horse;
-	HorseToTransportAdapter horseAdapter(horse);
+	HorseAdapter horseAdapter(horse);
 	transport = &horseAdapter;
 	driver.Travel(transport);
 
