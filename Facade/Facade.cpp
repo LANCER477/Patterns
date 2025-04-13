@@ -4,80 +4,84 @@ using namespace std;
 class PowerSupply {
 public:
     void enable() {
-        cout << "PowerSupply: Power is now on" << endl;
+        cout << "PowerSupply: Supply power" << endl;
     }
 
     void disable() {
-        cout << "PowerSupply: Power off initiated" << endl;
+        cout << "PowerSupply: Shut down" << endl;
     }
 };
 
 class Sensors {
 public:
     bool voltageOK() {
-        cout << "Sensors: Voltage levels are normal" << endl;
+        cout << "Sensors: Check voltage" << endl;
         return true;
     }
 
     bool temperatureOK() {
-        cout << "Sensors: Temperature within limits" << endl;
+        cout << "Sensors: Check all systems temperature" << endl;
         return true;
     }
 
     void runFullTempScan() {
-        cout << "Sensors: Temperature scan complete on all units" << endl;
+        cout << "Sensors: Check all systems temperature" << endl;
     }
 };
 
 class GPU {
 public:
     void initialize() {
-        cout << "GPU: Initialization successful" << endl;
+        cout << "GPU: Start" << endl;
     }
 
     void renderStatus() {
-        cout << "GPU: Rendering system status" << endl;
+        cout << "GPU: Display info" << endl;
+    }
+
+    void checkConnection() {
+        cout << "GPU: Check monitor connection" << endl;
     }
 };
 
 class RAM {
 public:
     void initialize() {
-        cout << "RAM: Activated" << endl;
+        cout << "RAM: Start devices" << endl;
     }
 
     void cleanup() {
-        cout << "RAM: Cleared old data" << endl;
+        cout << "RAM: Clear memory" << endl;
     }
 
     void diagnostic() {
-        cout << "RAM: Diagnostics complete" << endl;
+        cout << "RAM: Analyze memory" << endl;
     }
 };
 
 class HDD {
 public:
     void initialize() {
-        cout << "HDD: Spinning up" << endl;
+        cout << "HDD: Start" << endl;
     }
 
     void halt() {
-        cout << "HDD: Stopping operations" << endl;
+        cout << "HDD: Stop" << endl;
     }
 
     void verifyBoot() {
-        cout << "HDD: Boot sector verified" << endl;
+        cout << "HDD: Boot sector verified" << endl; 
     }
 };
 
 class OpticalDrive {
 public:
     void initialize() {
-        cout << "OpticalDrive: Ready to read" << endl;
+        cout << "OpticalDrive: Start" << endl;
     }
 
     void inspectDisk() {
-        cout << "OpticalDrive: HDD inspection finished" << endl;
+        cout << "OpticalDrive: Check disk presence" << endl;
     }
 
     void eject() {
@@ -104,7 +108,7 @@ public:
         sensors.temperatureOK();
 
         graphics.initialize();
-        graphics.renderStatus();
+        graphics.checkConnection();
 
         sensors.temperatureOK();
 
@@ -132,7 +136,7 @@ public:
         graphics.renderStatus();
         optical.eject();
 
-        power.enable(); // Simulate one last system check
+        power.enable(); 
         sensors.voltageOK();
         power.disable();
 
