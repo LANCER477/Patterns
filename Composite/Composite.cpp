@@ -36,7 +36,7 @@ public:
     }
 
     void Display(int depth) override {
-        cout << name << " (Öåíà: " << price << ")\n";
+        cout << name << " (Ð¦ÐµÐ½Ð°: " << price << ")\n";
 
         for (auto child : children) {
             child->Display(depth + 2);
@@ -59,15 +59,15 @@ public:
     Leaf(string name, double price) : Component(name, price) {}
 
     void Add(Component* c) override {
-        cout << "Íåâîçìîæíî äîáàâèòü â: " << name << endl;
+        cout << "ÐÐµÐ²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ Ð´Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð²: " << name << endl;
     }
 
     void Remove(Component* c) override {
-        cout << "Íåâîçìîæíî óäàëèòü èç: " << name << endl;
+        cout << "ÐÐµÐ²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ Ð¸Ð·: " << name << endl;
     }
 
     void Display(int depth) override {
-        cout << name << " (Öåíà: " << price << ")\n";
+        cout << name << " (Ð¦ÐµÐ½Ð°: " << price << ")\n";
     }
 
     double GetTotalPrice() override {
@@ -78,46 +78,46 @@ public:
 int main() {
     setlocale(LC_ALL, "");
 
-    Component* office = new Composite("Îôèñ");
+    Component* office = new Composite("ÐžÑ„Ð¸Ñ");
 
     
-    Component* reception = new Composite("Ïðèåìíàÿ");
-    reception->Add(new Leaf("Æóðíàëüíûé ñòîëèê", 150));
-    reception->Add(new Leaf("Ìÿãêèé äèâàí", 620));
+    Component* reception = new Composite("ÐŸÑ€Ð¸ÐµÐ¼Ð½Ð°Ñ");
+    reception->Add(new Leaf("Ð–ÑƒÑ€Ð½Ð°Ð»ÑŒÐ½Ñ‹Ð¹ ÑÑ‚Ð¾Ð»Ð¸Ðº", 150));
+    reception->Add(new Leaf("ÐœÑÐ³ÐºÐ¸Ð¹ Ð´Ð¸Ð²Ð°Ð½", 620));
 
-    Component* secDesk = new Composite("Ñòîë ñåêðåòàðÿ");
-    secDesk->Add(new Leaf("Êîìïüþòåð", 950));
-    secDesk->Add(new Leaf("Îôèñíûé èíñòðóìåíòàðèé", 180));
+    Component* secDesk = new Composite("Ð¡Ñ‚Ð¾Ð» ÑÐµÐºÑ€ÐµÑ‚Ð°Ñ€Ñ");
+    secDesk->Add(new Leaf("ÐšÐ¾Ð¼Ð¿ÑŒÑŽÑ‚ÐµÑ€", 950));
+    secDesk->Add(new Leaf("ÐžÑ„Ð¸ÑÐ½Ñ‹Ð¹ Ð¸Ð½ÑÑ‚Ñ€ÑƒÐ¼ÐµÐ½Ñ‚Ð°Ñ€Ð¸Ð¹", 180));
     reception->Add(secDesk);
 
-    reception->Add(new Leaf("Êóëåð ñ âîäîé", 270));
+    reception->Add(new Leaf("ÐšÑƒÐ»ÐµÑ€ Ñ Ð²Ð¾Ð´Ð¾Ð¹", 270));
     office->Add(reception);
 
     
-    Component* room1 = new Composite("Àóäèòîðèÿ 1");
-    room1->Add(new Leaf("10 ñòîëîâ", 1100));
-    room1->Add(new Leaf("Äîñêà", 130));
+    Component* room1 = new Composite("ÐÑƒÐ´Ð¸Ñ‚Ð¾Ñ€Ð¸Ñ 1");
+    room1->Add(new Leaf("10 ÑÑ‚Ð¾Ð»Ð¾Ð²", 1100));
+    room1->Add(new Leaf("Ð”Ð¾ÑÐºÐ°", 130));
 
-    Component* teachDesk = new Composite("Ñòîë ó÷èòåëÿ");
-    teachDesk->Add(new Leaf("Êîìïüþòåð", 870));
+    Component* teachDesk = new Composite("Ð¡Ñ‚Ð¾Ð» ÑƒÑ‡Ð¸Ñ‚ÐµÐ»Ñ");
+    teachDesk->Add(new Leaf("ÐšÐ¾Ð¼Ð¿ÑŒÑŽÑ‚ÐµÑ€", 870));
     room1->Add(teachDesk);
 
-    room1->Add(new Leaf("Ïëàêàòû âåëèêèõ ìàòåìàòèêîâ", 65));
+    room1->Add(new Leaf("ÐŸÐ»Ð°ÐºÐ°Ñ‚Ñ‹ Ð²ÐµÐ»Ð¸ÐºÐ¸Ñ… Ð¼Ð°Ñ‚ÐµÐ¼Ð°Ñ‚Ð¸ÐºÐ¾Ð²", 65));
     office->Add(room1);
 
     
-    Component* dining = new Composite("Ñòîëîâàÿ");
-    dining->Add(new Leaf("Êîôåéíûé àâòîìàò", 890));
-    dining->Add(new Leaf("Ñòîë ñ 4 ñòóëüÿìè", 340));
-    dining->Add(new Leaf("Õîëîäèëüíèê", 750));
-    dining->Add(new Leaf("Óìûâàëüíèê", 280));
+    Component* dining = new Composite("Ð¡Ñ‚Ð¾Ð»Ð¾Ð²Ð°Ñ");
+    dining->Add(new Leaf("ÐšÐ¾Ñ„ÐµÐ¹Ð½Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚", 890));
+    dining->Add(new Leaf("Ð¡Ñ‚Ð¾Ð» Ñ 4 ÑÑ‚ÑƒÐ»ÑŒÑÐ¼Ð¸", 340));
+    dining->Add(new Leaf("Ð¥Ð¾Ð»Ð¾Ð´Ð¸Ð»ÑŒÐ½Ð¸Ðº", 750));
+    dining->Add(new Leaf("Ð£Ð¼Ñ‹Ð²Ð°Ð»ÑŒÐ½Ð¸Ðº", 280));
     office->Add(dining);
 
-    cout << "\nÑÒÐÓÊÒÓÐÀ ÎÁÚÅÊÒÎÂ Â ÎÔÈÑÅ:\n\n";
+    cout << "\nÐ¡ÐŸÐ˜Ð¡ÐžÐš ÐŸÐ Ð•Ð”ÐœÐ•Ð¢ÐžÐ’:\n\n";
     office->Display(1);
 
     cout << "\n===============================\n";
-    cout << "Îáùàÿ ñòîèìîñòü: " << office->GetTotalPrice() << " $\n";
+    cout << "ÐžÐ±Ñ‰Ð°Ñ ÑÑ‚Ð¾Ð¸Ð¼Ð¾ÑÑ‚ÑŒ: " << office->GetTotalPrice() << " $\n";
     cout << "===============================\n";
 
     system("pause");
