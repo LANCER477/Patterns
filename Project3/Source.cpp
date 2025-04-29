@@ -138,25 +138,25 @@ int main() {
 
     manager.Choose(&bike);
     manager.SetPrice(0);
-    manager.SetTime(120);
+    manager.SetTime(140);
     cout << "Option 1: Bike - cheap ride" << endl;
     manager.Execute();
 
     manager.Choose(&bus);
-    manager.SetPrice(2);
-    manager.SetTime(45);
+    manager.SetPrice(1.5);
+    manager.SetTime(35);
     cout << "Option 2: Bus - budget option" << endl;
     manager.Execute();
 
     manager.Choose(&taxi);
-    manager.SetPrice(25);
-    manager.SetTime(20);
+    manager.SetPrice(35);
+    manager.SetTime(10);
     cout << "Option 3: Taxi - fast and comfy" << endl;
     manager.Execute();
 
     manager.Choose(&plane);
-    manager.SetPrice(150);
-    manager.SetTime(10);
+    manager.SetPrice(200);
+    manager.SetTime(5);
     cout << "Option 4: Plane - pricey" << endl;
     manager.Execute();
 
