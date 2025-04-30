@@ -2,7 +2,7 @@
 
 using namespace std;
 
-// Класс получателя
+
 class Receiver
 {
     bool bank;
@@ -43,7 +43,7 @@ public:
     }
 };
 
-// Базовый обработчик
+
 class PaymentProcessor
 {
 protected:
@@ -58,7 +58,6 @@ public:
     virtual void Process(Receiver* receiver) = 0;
 };
 
-// Обработчик: Банковский перевод
 class BankProcessor : public PaymentProcessor
 {
 public:
@@ -71,7 +70,6 @@ public:
     }
 };
 
-// Обработчик: Перевод системами денежных переводов
 class MoneyProcessor : public PaymentProcessor
 {
 public:
@@ -84,7 +82,6 @@ public:
     }
 };
 
-// Обработчик: PayPal
 class PayPalProcessor : public PaymentProcessor
 {
 public:
@@ -97,7 +94,6 @@ public:
     }
 };
 
-// Обработчик: Криптовалюта
 class CryptoProcessor : public PaymentProcessor
 {
 public:
@@ -110,7 +106,6 @@ public:
     }
 };
 
-// Обработчик: Наличные
 class CashProcessor : public PaymentProcessor
 {
 public:
@@ -123,7 +118,6 @@ public:
     }
 };
 
-// Запуск цепочки обработки
 void StartProcessing(PaymentProcessor* processor, Receiver* receiver)
 {
     processor->Process(receiver);
