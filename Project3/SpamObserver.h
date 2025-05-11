@@ -10,6 +10,6 @@ class SpamObserver : public Observer {
 public:
     SpamObserver(string name) : name(name) {}
     void Update() override {
-        cout << name << ": WTF?! Зачем мне это сообщение?!" << endl;
+        cout << name << ": WTF " << endl;
     }
 };
