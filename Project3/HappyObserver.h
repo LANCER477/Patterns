@@ -10,6 +10,6 @@ class HappyObserver : public Observer {
 public:
     HappyObserver(string name) : name(name) {}
     void Update() override {
-        cout << name << ": YAY! Я ждал это сообщение!" << endl;
+        cout << name << ": GOOD" << endl;
     }
 };
